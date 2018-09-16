@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<!--<link rel="icon" href="img/snowflake.ico">-->
+		<title>音乐播放器</title>
+		
+		<style type="text/css">
+			.body{
+				height: 430px;;
+				border:3px solid #6A5ACD;
+				border-bottom: 0px;;
+				width:300px ;
+				background:#F5F5F5;
+			}
+			.div1{
+				/*border: 1px solid black;*/
+				height: 35px;
+				/*color: #FF0000;*/
+				border-right: 200px;
+				width: 150px;
+				background:		#0000CD;
+				float: left;
+				color: white;
+				text-align: center;
+				line-height: 35px;
+			}
+			.div2{
+				/*border: 1px solid black;*/
+				height: 35px;
+				/*color: #FF0000;*/
+				border-right: 200px;
+				width:150px;
+				background:			#696969 ;
+				float: left;
+				color: white;
+				text-align: center;
+				line-height: 35px;
+			}
+			.play1{
+				margin-top: 10px;
+				float:left;
+				width:148px;
+				height:30px;
+				font:12px;
+				/*border: 1px solid black;*/
+				text-align: center;
+				line-height: 30px;
+			}
+			.play2{
+				margin-top: 10px;
+				float:left;
+				width:148px;
+				height:30px;
+				font:12px;
+				/*border: 1px solid black;*/
+				text-align: center;
+				line-height: 30px;
+			}
+			.footer{
+				height: 30px;;
+				border:3px solid #6A5ACD;
+				/*border-top: 1px;*/
+				width:300px ;
+				background:#F5F5F5;
+			}
+			#play_11{
+				display: none;
+				/*margin-top: 10px;*/
+				float:left;
+				width:148px;
+				height:30px;
+				font:12px;
+				text-align: center;
+				line-height: 30px;
+			}
+			#play_21{
+				display: none;
+				/*margin-top: 10px;*/
+				float:left;
+				width:148px;
+				height:30px;
+				font:12px;
+				text-align: center;
+				line-height: 30px;
+			}
+			/*#audio1{
+				display: none;
+			}*/
+			#audio2{
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<header class="body">
+			<div class="div1">在线音乐</div>
+			<div class="div2">本地音乐</div>
+			<div class="play1">认真地老去</div>
+				<div class="play1">
+					<a  id='play_1'>播放</a>
+					<a id="play_11">暂停</a>
+					<!--<audio src="music/认真地老去.mp3 ">您的浏览器不支持</audio>-->
+				</div>
+			<div class="play1">魔鬼中的天使</div>
+				<div class="play1">
+					<a  id='play_2'>播放</a>
+					<a id="play_21">暂停</a>
+					<audio src="music/认真地老去.mp3 ">您的浏览器不支持</audio>
+			</div>
+			
+		</header>
+		
+		<footer class="footer">
+		
+			<audio src="music/认真地老去.mp3" controls id="audio1" >
+			您的浏览器不支持
+			</audio>
+			<audio src="music/魔鬼中的天使.mp3" controls id="audio2" >
+			您的浏览器不支持
+			</audio>
+		</footer>
+	</body>
+	<script type="text/javascript">
+			var play_11=document.getElementById("play_11");
+			var play_1=document.getElementById("play_1")
+			var audio1=document.getElementById('audio1');
+			var audio2=document.getElementById('audio2');
+//			var audio0=document.getElementById('audio0');
+			var play_1=document.getElementById('play_1');
+			var play_2=document.getElementById('play_2');
+			//第一首播放
+			play_1.onclick = function(){
+				audio1.style.display="block";
+				console.log(1);
+				if(audio1.paused){
+					audio1.play();
+				}
+				play_1.style.display="none";
+				play_11.style.display="block";
+			}	
+			//第一首暂停
+			play_11.onclick = function(){
+				console.log(2);
+				if(audio1.played){
+					audio1.pause();
+				}
+				play_11.style.display="none";
+				play_1.style.display="block";
+			}	
+			
+			//第二首播放
+			play_2.onclick = function(){
+				audio1.style.display="none";
+				audio2.style.display="block";
+				audio1.pause();
+				console.log(1);
+				if(audio2.paused){
+					audio2.play();
+				}
+				play_2.style.display="none";
+				play_21.style.display="block";
+			}		
+			//第二首暂停
+			play_21.onclick = function(){
+				console.log(2);
+				if(audio2.played){
+					audio2.pause();
+				}
+				play_21.style.display="none";
+				play_2.style.display="block";
+			}		
+		</script>
+</html>
