@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>自我介绍</title>
+		  <style type="text/css">
+ 			#email{
+ 				border: 1px solid black;
+ 				width:172px;
+ 				margin-left: 31px;
+ 				/*text-align: center;*/
+ 				line-height: 5px;
+ 				background: white;
+ 				z-index：999; 
+ 				 position:relative;
+ 			}
+       </style>
+	</head>
+	<body>
+		<h1>请填写个人信息</h1>
+		<form >
+			
+		</form>
+		<fieldset style="width:460px;height:70px;">
+			<legend ><font color="red">基本信息</font></legend>
+			姓名<input type="text" name="name"
+				placeholder="请输入姓名">*
+			<br>
+			年龄<input type="number" name="age" value="20"/>
+	    </fieldset>
+	    <br />
+	    
+	    <fieldset style="width:460px;height:50px;">
+	    	<legend><font color="red">你想在哪里收到邮件？</font></legend>
+        	邮箱<input id="regemail"  type="text" placeholder="请输入邮箱地址"  
+  				name="email"   autocomplete="on" results/>
+				<datalist id="email">
+	  				<option class="on"></option>
+					<option>@qq.com</option>
+					<option>@163.com</option>
+					<option>@gmail.com</option>
+					<option>@yahoo.com.cn</option>
+					<option>@126.com</option>
+				</datalist>
+		</fieldset>
+	    <br />
+	    
+	    <fieldset style="width:460px;height:70px;">
+	    	<legend><font color="red" >收入情况</font></legend>
+	    	月收入<select name="income">
+	    		<option>20k+</option>
+	    	</select>
+	    	<br>
+	   		银行卡<input type="text" name="card" />
+	   		有效期<input type="date" name="date" />
+	    </fieldset>
+	    <br />
+	    
+	    <fieldset style="width:460px;height:50px;">
+	    	<legend><font color="red">选取提交文件</font></legend>
+	    	文件<input type="file" />
+	    </fieldset>
+	    <br />
+	    <button>提交</button>
+	</body>
+	
+
+<script type="text/javascript">
+	window.onload=function(){
+		var objtxt=document.getElementById("regemail");
+		var objlist=document.getElementById("email");
+        var lists=objlist.getElementsByTagName("option");
+        var len=lists.length;
+        objtxt.onfocus=function(){
+            objlist.style.display="block";
+        }
+        objtxt.onblur=function(){
+            objlist.style.display="none";
+        }
+        objtxt.onkeyup=function(){
+            var txt=this.value;
+            var flag="";
+            if(txt.indexOf("@")>0){
+                flag=txt.substring(txt.indexOf("@")-1);//获取的输入的@开始的内容
+                txt=txt.substring(0,txt.indexOf("@"));
+            }else{
+                flag="";
+            }
+            var val="";
+            for(var i=1; i<len; i++){
+                val=lists[i].textContent;
+                val=val.substring(val.indexOf("@"));
+                lists[i].textContent=txt+val;
+            }
+            if(flag!=""){
+                var reg=new RegExp(flag,"i");
+                for(var i=1;i<len;i++){
+                    if(reg.test(lists[i].textContent)){
+                        lists[i].style.display="block";
+                    }else{
+                        lists[i].style.display="none";
+                    }
+                }
+            }
+        }
+         //给每个option绑定一个鼠标的点击事件
+        for(var i=1;i<len;i++){
+            lists[i].onmousedown=function(){
+                objtxt.value=this.textContent;
+                objlist.style.display="none";
+            }
+        }
+    }
+	   
+</script>
+</html>
