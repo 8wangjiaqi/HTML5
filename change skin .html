@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>更换皮肤</title>
+	</head>
+	<style type="text/css">
+		.color{
+			border: 2px solid gray;
+			height: 40px;
+			width:690px;
+			margin-top: 10px;
+			margin-left: 5px;
+		}
+		#choice{
+			/*border: 1px solid green;*/
+			width: 10px;
+			height: 10px;
+		}
+		.ull{
+			 list-style-type:none;
+			 /*float: left;*/
+			
+		}
+		#choice{
+			float: left;
+			height: 25px;
+			width: 25px;
+			margin-right: 10px;
+			margin-top:-10px;
+		}
+		.word{
+			height: 70px;
+			width: 690px;
+			/*border: 1px solid gainsboro;*/
+			margin-top: 20px;
+			margin-left: 5px;
+			font-size: 20px;
+			line-height: ;
+			line-height: 28px;
+			/*display: table;*/
+/*			background-color: yellow;*/
+		}
+		
+		/*多行文本居中*/
+		/*.center{
+			display: table-cell;
+			vertical-align: middle;
+		}*/
+	</style>
+	<body>
+		<fieldset style="width:700px;height:200px;">
+		<legend ><font color="red" size="6">页面换肤</font></legend>
+		<div class="color">
+			<ul class="ull">
+				<li id="choice" style="margin-left:-25px; 
+					background-color:#7FFFD4;"></li>
+				<li id="choice" style="background-color: #33CCFF;"></li>
+				<li id="choice" style="background-color: #66FF66;"></li>
+				<li id="choice" style="background-color: #CC99CC;"></li>
+				<li id="choice" style="background-color: #FF99CC;"></li>
+				<li id="choice" style="background-color: #FFFF99;"></li>
+			</ul>
+		</div>
+		<div class="word">
+			<!--<p class="center">-->
+				LocalStorage将数据保存在客户端本地的硬件设备中，即使浏览器被关闭了，
+				该数据依然存在，下次打开浏览器访问网站时仍然可以继续使用。
+			<!--</p>-->			
+		</div>
+		</fieldset>
+	</body>
+	<script type="text/javascript">
+		var color=document.getElementsByClassName("color")[0];
+		var word=document.getElementsByClassName("word");
+		var ul=color.getElementsByTagName('ul')[0];
+		var li=ul.getElementsByTagName('li'); 
+        if (window.localStorage){ 
+        for(var i = 0; i<choice.length;i++)
+		{
+//			console.log(2);
+       		choice[i].index = i;
+       		choice[i].onclick = function()
+	        {
+//			console.log(1);
+			word[0].style.backgroundColor=this.style.backgroundColor;
+			var c1=word[0].style.backgroundColor;
+			console.log(c1)
+			localStorage.setItem("key",c1);
+			
+       }
+  }
+			console.log(localStorage.getItem("key"));
+   			console.log(111);
+   			word[0].style.backgroundColor=localStorage.getItem("key");
+    	}
+     else{
+     		console.log("您的浏览器不不支持localStorage")
+     }
+
+	</script>
+</html>
