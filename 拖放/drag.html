@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>图像拖放</title>
+		<style type="text/css">
+			#picture {      
+				width: 180px;      
+				height: 180px;      
+				border: 1px solid black;      
+				padding: 5px;    
+			}
+		</style>
+	</head>
+	<body>
+		<p ><font  size="5">上传头像</p>
+		<div id="picture"> </div>
+	</body>
+	<script type="text/javascript">
+		
+		//拖放的目标为document
+		//阻止被拖放的元素正在本元素范 围内移动 
+ 		document.ondragover = function(e){    
+ 			e.preventDefault();  
+ 		}
+ 		//取消默认事件，阻止在新窗口打开
+  		document.ondrop = function(e){    
+  			e.preventDefault();
+  		}
+  		
+  		picture.ondragover = function(e){    
+  			e.preventDefault();
+  		}
+   		picture.ondrop = function(e){ 
+   			//读取数据
+   			var f0 = e.dataTransfer.files[0];  
+   			//创建一个文件内容读取器——FileReader
+      		var fr = new FileReader(); 
+      		//读取文件中的内容 —— DataURL：一种特殊的URL地址，本身包含着所有的数据
+        	fr.readAsDataURL(f0);  
+        	fr.onload = function(){      
+        		//console.log(1);          
+        		var img = new Image();      
+        		img.src = fr.result; 
+        		img.style.width="180px";      
+        		img.style.height="180px";      
+        		picture.appendChild(img);
+        }
+       }
+
+</script>
+</html>
