@@ -5,7 +5,7 @@
 		<title>clock</title>
 		<style>
 			canvas{
-			border: 2px solid yellow;
+			/*border: 2px solid yellow;*/
 				/*background: #F0E68C;*/
 			}
 		</style>
@@ -18,23 +18,23 @@
 		var canvas=document.getElementById("canvas");
 		var context=canvas.getContext("2d");
 		
-			function clearCanvas()  
-{  
-var canvas=document.getElementById("canvas");
-		var context=canvas.getContext("2d"); 
+		function clearCanvas(){  
+			var canvas=document.getElementById("canvas");
+			var context=canvas.getContext("2d"); 
       
-    context.fillStyle="white";  
-    context.beginPath();  
-    context.fillRect(0,0,500,500);  
-    context.closePath();
-//  console.log("qingchu");
-}  
-            function drawClock(){
+    		context.fillStyle="white";  
+    		context.beginPath();  
+    		context.fillRect(0,0,500,500);  
+    		context.closePath();
+		//  console.log("qingchu");
+		}  
+		
+        function drawClock(){
             clearCanvas();
-           var now = new Date();   //定义时间
-            var sec = now.getSeconds();  //获取秒
-            var minute = now.getMinutes();  //获取分钟
-            var hour = now.getHours();   //获取小时
+           	var now = new Date();   
+            var sec = now.getSeconds();  
+            var minute = now.getMinutes();  
+            var hour = now.getHours();   
             //小时必须获取浮点类型，产生偏移（小时+分钟比）
             hour = hour + minute/60;
             //将24小时转换为12小时
@@ -50,8 +50,8 @@ var canvas=document.getElementById("canvas");
             context.closePath();  
          context.save();
         //分针刻度
-        context.beginPath();
-           context.translate(250,250);
+        	context.beginPath();
+           	context.translate(250,250);
     		for(var i=0;i<60;i++){
     			 
         		context.beginPath();
@@ -66,10 +66,19 @@ var canvas=document.getElementById("canvas");
         		context.fillStyle="orange";
         		context.fillRect(177,0, 18, 7);
        		}        
-         	
-         
+        
+        //数字
+            context.font = '20px Arial';
+    		context.fillStyle = 'black';
+    		context.textAlign = 'center';
+    		context.textBaseline = 'middle';
+    		for (var i = 0; i <12; i++) {
+        		var theta = (i - 3) * (Math.PI * 2) / 12;
+        		var x = 250* 0.65* Math.cos(theta);
+        		var y = 250* 0.65 * Math.sin(theta);
+        		context.fillText(i, x, y);
+    		}
         //时针
-        	
         	context.save();
 //      	console.log(hour);
         	context.lineWidth =8;
@@ -81,8 +90,7 @@ var canvas=document.getElementById("canvas");
             context.lineTo(0,10);
         	context.stroke();
       		context.restore();
-//		//分针
-			
+//		//分针		
 		    context.beginPath();
         	context.lineWidth = 5;
             context.strokeStyle="black";
@@ -92,7 +100,6 @@ var canvas=document.getElementById("canvas");
         	context.stroke();
  
         //秒针
-        	
 		    context.beginPath();
         	context.lineWidth = 3;
             context.strokeStyle="yellow";
