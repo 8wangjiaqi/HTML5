@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>image墙</title>
+		<style>
+			*{
+				margin: 0px;
+				padding: 0px;
+			}
+			.zheng{
+				width: 1349px;
+				height: 700px;
+				background-image:url(img/bg3.JPG) ;
+				
+			}
+			.whole{
+				width: 1400px;
+				height: 250px;
+				/*border:2px solid pink;*/
+				float: left;
+			}
+			.div1{
+				margin-top: 40px;
+				margin-left: 40px;
+				width: 190px;
+				height: 180px;
+				border:2px solid #F5F5F5;
+				float: left;
+				overflow: hidden;
+				background-color: white;
+			}
+			.div1  img{
+				margin-left: 5px;
+				margin-top: 10px;
+				width: 180px;
+				height: 130px;
+				background-size:100% 100% ;
+			}
+			.whole div:first-child{
+				transform: rotate(-5deg);
+			}
+			.whole div:last-child{
+				transform: rotate(-8deg);
+			}
+			.whole div:nth-child(3){
+            	transform: rotate(-10deg);
+        	}
+        	.whole div:nth-child(4){
+            	transform: rotate(-3deg);
+        	}
+        	.whole div:hover{
+            	transform: scale(1.2);
+        	}
+		</style>
+	</head>
+	<body>
+		<div class="zheng">
+		<div class="whole">
+			<div class="div1">
+				<img src="img/11.jpg">
+			</div>
+			<div class="div1"
+				style="width:140px;height: 180px;">
+				<img src="img/22.JPG" style="width: 130px;">
+			</div>
+			<div class="div1">
+				<img src="img/33.JPG">
+			</div>
+			<div class="div1">
+				<img src="img/44.JPG">
+			</div>
+			<div class="div1"
+				style="width:150px;height: 180px;">
+				<img src="img/55.JPG" style="width: 140px;">
+			</div>
+			<div class="div1">
+				<img src="img/66.JPG">
+			</div>
+		</div>
+	
+	</div>
+	</body>
+</html>
